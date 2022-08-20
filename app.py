@@ -16,13 +16,13 @@ from racket import Racket
 from ball import Ball
 
 screen = Screen()
-screen.setup(height=600, width=600)
+screen.setup(height=600, width=800)
 screen.bgcolor("black")
 screen.title("PONG")
 screen.tracer(0)
 
-l_racket = Racket((-280, 0))
-r_racket = Racket((275, 0))
+l_racket = Racket((-350, 0))
+r_racket = Racket((350, 0))
 ball = Ball()
 screen.update()
 screen.listen()
@@ -36,5 +36,13 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.y_bounce()
+
+    if ball.distance(r_racket) < 50 and ball.xcor() > 320 or ball.distance(l_racket) < 50 and ball.xcor() < -320:
+        print("made contact")
+        ball.x_bounce()
+
 
 screen.exitonclick()

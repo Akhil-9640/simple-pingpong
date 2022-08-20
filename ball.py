@@ -9,16 +9,16 @@ class Ball(Turtle):
         self.up()
         self.shapesize(stretch_wid=0.5, stretch_len=0.5)
         self.goto(0, 0)
-        self.going_up = True
+        self.y_move = 10
+        self.x_move = 10
 
     def move(self):
-        new_x = self.xcor()+5
-        if self.going_up:
-            new_y = self.ycor()+5
-        else:
-            new_y = self.ycor()-5
-
-        if (new_y > 280 and self.going_up) or (new_y < -280 and not self.going_up):
-            self.going_up = not self.going_up
-
+        new_x = self.xcor() + self.x_move
+        new_y = self.ycor() + self.y_move
         self.setposition(new_x, new_y)
+
+    def y_bounce(self):
+        self.y_move *= -1
+
+    def x_bounce(self):
+        self.x_move *= -1
