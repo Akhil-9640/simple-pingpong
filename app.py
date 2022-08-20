@@ -10,10 +10,11 @@
 # TODO 7: Detect when paddle misses
 # TODO 8: Keep Track of scores
 
-from turtle import Screen, Turtle
+from turtle import Screen
 import time
 from racket import Racket
 from ball import Ball
+from scoreboard import Scoreboard
 
 screen = Screen()
 screen.setup(height=600, width=800)
@@ -24,16 +25,17 @@ screen.tracer(0)
 l_racket = Racket((-350, 0))
 r_racket = Racket((350, 0))
 ball = Ball()
+scoreboard = Scoreboard()
 screen.update()
 screen.listen()
-screen.onkey(r_racket.go_up, "Up")
-screen.onkey(r_racket.go_down, "Down")
-screen.onkey(l_racket.go_up, "w")
-screen.onkey(l_racket.go_down, "s")
+screen.onkeypress(r_racket.go_up, "Up")
+screen.onkeypress(r_racket.go_down, "Down")
+screen.onkeypress(l_racket.go_up, "w")
+screen.onkeypress(l_racket.go_down, "s")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.b_speed)
     screen.update()
     ball.move()
 
@@ -44,13 +46,15 @@ while game_is_on:
         print("made contact")
         ball.x_bounce()
 
-    if ball.xcor() > 380 :
+    if ball.xcor() > 380:
         ball.reset_position()
-        time.sleep(3)
+        scoreboard.l_increase()
+        time.sleep(1)
 
     if ball.xcor() < -380:
         ball.reset_position()
-        time.sleep(3)
+        scoreboard.r_increase()
+        time.sleep(1)
 
 
 screen.exitonclick()
