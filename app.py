@@ -6,9 +6,9 @@
 # DONETODO 3: Create another paddle
 # DONETODO 4: Create the ball and make it move
 # DONETODO 5: Detect collision with wall and bounce
-# TODO 6: Detect Collision with the paddle
-# TODO 7: Detect when paddle misses
-# TODO 8: Keep Track of scores
+# DONETODO 6: Detect Collision with the paddle
+# DONETODO 7: Detect when paddle misses
+# DONETODO 8: Keep Track of scores
 
 from turtle import Screen
 import time
@@ -55,6 +55,5 @@ while game_is_on:
         ball.reset_position()
         scoreboard.r_increase()
         time.sleep(1)
-
 
 screen.exitonclick()
