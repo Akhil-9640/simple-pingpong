@@ -44,5 +44,13 @@ while game_is_on:
         print("made contact")
         ball.x_bounce()
 
+    if ball.xcor() > 380 :
+        ball.reset_position()
+        time.sleep(3)
+
+    if ball.xcor() < -380:
+        ball.reset_position()
+        time.sleep(3)
+
 
 screen.exitonclick()
