@@ -4,8 +4,8 @@
 # DONETODO 1: Create the screen
 # DONETODO 2: Create and move a paddle
 # DONETODO 3: Create another paddle
-# TODO 4: Create the ball and make it move
-# TODO 5: Detect collision with wall and bounce
+# DONETODO 4: Create the ball and make it move
+# DONETODO 5: Detect collision with wall and bounce
 # TODO 6: Detect Collision with the paddle
 # TODO 7: Detect when paddle misses
 # TODO 8: Keep Track of scores
